@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import time
 
 path = 'data/1605371875692.jpg'
 img = cv2.imread(path, 0)
@@ -52,7 +53,7 @@ y, x = img_new.shape
 def split_image(cut):
     dis = int((x_max - x_min) / cut)
     for i in range(cut):
-        cv2.imwrite("cache/" + str(cut) + "_" + str(i) + ".jpg", img_not[y_min:y_max, dis * i:dis * (i + 1)])
+        cv2.imwrite("cache/" + str(cut) + "_" + str(time.time()) + ".jpg", img_not[y_min:y_max, dis * i:dis * (i + 1)])
 
 
 split_image(8)
