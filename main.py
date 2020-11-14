@@ -1,10 +1,11 @@
 import cv2
 import numpy as np
 
-img = cv2.imread('demo.jpg', 0)
+path = 'data/1605371875692.jpg'
+img = cv2.imread(path, 0)
 x0, y0 = img.shape
 
-img_ori = cv2.imread('demo.jpg')
+img_ori = cv2.imread(path)
 img = cv2.resize(img, (y0 * 2, x0 * 2))
 img_ori = cv2.resize(img_ori, (y0 * 2, x0 * 2))
 
@@ -41,10 +42,23 @@ print(x_min, x_max)
 
 y_min = int(x0 * 0.15)
 y_max = int(x0 * 0.85)
-cv2.imshow('1', img_not[y_min:y_max, x_min:x_max])
+# cv2.imshow('1', img_not[y_min:y_max, x_min:x_max])
 img_new = img_not[y_min:y_max, x_min:x_max]
 y, x = img_new.shape
-cut = 6
-dis = int((x_max - x_min) / cut)
 
-cv2.waitKey()
+
+# cut = 6
+
+def split_image(cut):
+    dis = int((x_max - x_min) / cut)
+    for i in range(cut):
+        cv2.imwrite("cache/" + str(cut) + "_" + str(i) + ".jpg", img_not[y_min:y_max, dis * i:dis * (i + 1)])
+
+
+split_image(8)
+split_image(7)
+split_image(6)
+split_image(5)
+split_image(4)
+
+# cv2.waitKey()
