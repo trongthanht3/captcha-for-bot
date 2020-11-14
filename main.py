@@ -1,10 +1,10 @@
 import cv2
 import numpy as np
 
-img = cv2.imread('124317847_569194560566206_7089234066176291289_n.jpg', 0)
+img = cv2.imread('demo.jpg', 0)
 x0, y0 = img.shape
 
-img_ori = cv2.imread('124317847_569194560566206_7089234066176291289_n.jpg')
+img_ori = cv2.imread('demo.jpg')
 img = cv2.resize(img, (y0 * 2, x0 * 2))
 img_ori = cv2.resize(img_ori, (y0 * 2, x0 * 2))
 
