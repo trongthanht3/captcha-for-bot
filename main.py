@@ -37,18 +37,15 @@ for x in range(0, y0):
             if x_min == -1:
                 x_min = x
             x_max = x
-        # print(x0,y0)
 
 print(x_min, x_max)
 
 y_min = int(x0 * 0.15)
 y_max = int(x0 * 0.85)
-# cv2.imshow('1', img_not[y_min:y_max, x_min:x_max])
 img_new = img_not[y_min:y_max, x_min:x_max]
 y, x = img_new.shape
 
 
-# cut = 6
 
 def split_image(cut):
     dis = int((x_max - x_min) / cut)
